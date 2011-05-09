@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright 2010,  Jose P. Espinal <jpe [at] slackware-es.com> , SD, RD,
+# Copyright 2011,  Jose P. Espinal <jpe [at] slackware-es.com> , SD, RD,
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PKGNAM=asterisk
-VERSION=${VERSION:-1.4.39}
+VERSION=${VERSION:-1.4.41}
 ARCH=`uname -m`
 BUILD=${BUILD:-1_eslackware}
 
