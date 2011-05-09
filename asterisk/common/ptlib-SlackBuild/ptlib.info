@@ -1,7 +1,7 @@
 PRGNAM="PTLib"
 VERSION="2.8.3"
 HOMEPAGE="http://www.h323plus.org/source"
-DOWNLOAD=""
+DOWNLOAD="http://www.h323plus.org/source/download/ptlib-2.8.3.tar.bz2"
 MD5SUM=""
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""

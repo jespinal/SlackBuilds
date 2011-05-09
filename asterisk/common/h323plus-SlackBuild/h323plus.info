@@ -1,7 +1,7 @@
 PRGNAM="H.323 Plus"
 VERSION="1.22.0"
 HOMEPAGE="http://www.h323plus.org"
-DOWNLOAD=""
+DOWNLOAD="http://www.h323plus.org/source/download/h323plus-1.22.0.tar.gz"
 MD5SUM=""
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""

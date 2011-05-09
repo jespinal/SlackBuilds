@@ -6,7 +6,8 @@ Package Description  : ODBC (Open Database Connectivity) provides a way for clie
 
 Dependencies         : unixODBC or iODBC 
 
-Other Info           : Compile it with --disable-gui for no problems with Qt dependencies 
+Other Info           : Compile it with --disable-gui for no problems with Qt dependencies. 
+		       Look for the source in the MySQL download page, not for a binary package.
 
 # http://www.eslackware.com
 # autor: Jose P. Espinal
