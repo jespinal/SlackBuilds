@@ -1,0 +1,13 @@
+Application Name     : Asterisk Add-Ons 
+
+Package Description  : Asterisk Add-Ons include a number of additional open source drivers and utilities including support for mp3 playback,
+                       MySQL real-time and CDR support, chan_mobile, and an alternative H.323 driver (chan_ooh323). Please note that some of
+                       these are experimental. 
+
+Dependencies         : None
+
+Other Info           : None
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

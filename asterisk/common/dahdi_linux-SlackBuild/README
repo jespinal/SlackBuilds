@@ -1,0 +1,12 @@
+Application Name     : DAHDI Linux 
+
+Package Description  : DAHDI Linux is the open source device driver framework used by multiple hardware vendors to 
+                       interface applications (including Asterisk) with telephony hardware. 
+
+Dependencies         : None 
+
+Other Info           : None
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

@@ -1,0 +1,13 @@
+Application Name     : UnixODBC 
+
+Package Description  : ODBC is an open specification for providing application developers with a predictable API
+                       with which to access Data Sources. Data Sources include SQL Servers and any Data Source 
+                       with an ODBC Driver.  
+
+Dependencies         : None 
+
+Other Info           : http://www.unixodbc.org 
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

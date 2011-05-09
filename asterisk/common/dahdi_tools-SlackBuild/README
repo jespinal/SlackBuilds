@@ -1,0 +1,11 @@
+Application Name     : DAHDI Tools
+
+Package Description  : DAHDI Tools is a package of utilities for managing and monitoring DAHDI devices.
+
+Dependencies         : DAHDI Linux, NewT Libraries
+
+Other Info           : None
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

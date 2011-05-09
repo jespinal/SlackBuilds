@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+libss7: LibSS7 
+libss7:
+libss7: LibSS7 is a library that is used for providing SS7 protocol services
+libss7: to applications - like Asterisk. It has a working MTP2, MTP3 and ISUP
+libss7: for ITU and ANSI-style SS7. LibSS7 is a dependency for Asterisk and 
+libss7: DAHDI if SS7 signaling is used.
+libss7:
+libss7:
+libss7: More info: http://www.asterisk.org/downloads 
+libss7: Package: Jose P. Espinal - http://wwww.eslackware.com
+libss7:

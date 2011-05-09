@@ -1,0 +1,213 @@
+#!/bin/bash
+
+# Copyright 2010,  Jose P. Espinal <jpe [at] slackware-es.com> , SD, RD,
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+PKGNAM=${PKGNAM:-mysql-connector-odbc}
+VERSION=${VERSION:-5.1.8}
+ARCH=`uname -m`
+BUILD=${BUILD:-1_eslackware}
+
+if [ -f "${PKGNAM}-${VERSION}.tar.bz2" -a -f "${PKGNAM}-${VERSION}.tar.gz" ];
+        then
+                echo "Apparently you have a .bz2 and .gz version of the source file"
+                echo "You will have to move one of the outside of this directory (at least while running this script)"
+                echo "I will exit now..."
+                exit
+elif [ -f "${PKGNAM}-${VERSION}.tar.bz2" ];
+        then
+                TAR_ARGS="xvjf"
+		FULLPKGNAM="${PKGNAM}-${VERSION}.tar.bz2"
+elif [ -f "${PKGNAM}-${VERSION}.tar.gz" ];
+        then
+                TAR_ARGS="xvzf"
+		FULLPKGNAM="${PKGNAM}-${VERSION}.tar.gz"
+else
+        echo "Could not find a ${PKGNAM}-${VERSION}.tar.bz2 package or ${PKGNAM}-${VERSION}.tar.bz2... exiting now"
+        exit
+fi
+
+
+
+# Directory name generated after uncompression
+PKGDIR=`tar -tf ${FULLPKGNAM} | head -n1` 
+
+CURRENT_DIR=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-${PKGNAM}
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" -o "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
+if [ -d "${PKG}" ]; then
+	rm -rf $PKG
+fi
+
+if [ ! -d "$TMP" ]; then
+	mkdir "$TMP"
+fi
+
+# Creating package directory
+mkdir -p $PKG
+
+# Entering temporal directory
+cd $TMP
+
+# Removing source directory (if exists)
+# This may exists if the package has been created previously
+# Note: sometimes when uncompressing some tar balls, the resultind source directory
+#       is not in the form 'packagename-version' (e.g. Mozilla Firefox generates 'mozilla' directory)
+
+if [ -d "${PKGNAM}-${VERSION}" ]; then
+	echo "Removing ${PKGNAM}-${VERSION}" ###---
+	rm -rf ${PKGNAM}-${VERSION}
+fi
+
+if [ -d "${PKGDIR}" ]; then
+	echo "Removing ${PKGDIR}" ###---
+	rm -rf ${PKGDIR}
+fi
+
+# Uncompressing tar ball
+echo "uncompressing ${FULLPKGNAM} inside `pwd`"
+sleep 2
+tar ${TAR_ARGS} ${CURRENT_DIR}/${FULLPKGNAM}
+#exit
+
+# Changin to source directory
+if [ -d "${PKGDIR}" ]; then
+
+	if ( ! cd ${PKGDIR} 2>/dev/null ); then
+		echo "Could not change to ${PKGDIR} directory"
+		sleep 2
+		exit
+	else
+		# Fixing permissions and ownership
+		cd ${PKGDIR}
+		echo "Fixing permissions inside `pwd`"
+		chown -R root:root .
+	fi
+
+elif [ -d "${PKGNAM}-${VERSION}" ]; then
+
+	if ( ! cd ${PKGNAM}-${VERSION} 2>/dev/null ); then
+		echo "Could not change to ${PKGNAM}-${VERSION}"
+		sleep 2
+		exit
+		
+	else
+		# Fixing permissions and ownership
+		cd ${PKGNAM}-${VERSION}
+		echo "Fixing permissions inside `pwd`"
+		chown -R root:root .
+
+	fi
+
+else
+	echo "Neither ${PKGDIR} or ${PKGNAM}-${VERSION} directories exists"
+	echo "Exiting now..."
+	exit	
+fi
+
+
+# find . ! -perm 644 -type f -exec chmod 644 {} \;
+# find . ! -perm 755 -type d -exec chmod 755 {} \;
+
+
+
+###########################
+# Configuration
+# This part needs to be customized for every package
+##########################
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
+--sysconfdir=/etc --localstatedir=/var \
+--exec-prefix=/usr \
+--docdir=/usr/doc/${PKGNAM} \
+--mandir=/usr/man \
+--with-unixODBC=/usr \
+--with-odbc-ini=/etc \
+--without-x \
+--without-qt \
+--disable-gui \
+
+
+##########################
+# Make
+##########################
+make
+
+#########################
+# Make Install
+#########################
+make install DESTDIR=$PKG
+
+
+# Creating documentation
+mkdir -p $PKG/usr/doc/${PKGNAM}-${VERSION}
+
+
+# Copying the documentation and fixing permissions
+# This part needs to be modified to fit the amount of doc of every package
+cp -a README* doc* HACKING INSTALL COPYING AUTHORS NEWS ChangeLog* $PKG/usr/doc/${PKGNAM}-${VERSION}
+find $PKG/usr/doc/${PKGNAM}-${VERSION} -type f -exec chmod 644 {} \;
+
+
+# Copying the SlackBuild as part of the documentation
+cat ${CURRENT_DIR}/${PKGNAM}.SlackBuild > $PKG/usr/doc/${PKGNAM}-${VERSION}/${PKGNAM}.SlackBuild
+
+
+# Description of the package
+mkdir -p $PKG/install
+cat ${CURRENT_DIR}/slack-desc > $PKG/install/slack-desc
+
+
+# Reserving some space with strip
+( cd $PKG
+   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+
+# Compressing the man pages (if they exist)
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+  find . -type f -exec gzip -9 {} \;
+  for i in $(find . -type l) ; do ln -s $(readlink $i).gz $i.gz ; rm $i ; done
+  )
+fi
+
+
+# Compressing the info pages (if exists)
+if [ -d $PKG/usr/info ]; then
+  gzip -9 $PKG/usr/info/*.info
+  rm -f $PKG/usr/info/dir
+fi
+
+# Creating the package
+cd $PKG
+/sbin/makepkg -l y -c n $TMP/${PKGNAM}-${VERSION}-${ARCH}-${BUILD}.txz

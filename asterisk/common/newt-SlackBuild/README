@@ -1,0 +1,15 @@
+Application Name     : NewT
+
+Package Description  : Newt is a programming library for color text mode, widget based user interfaces. 
+                       Newt can be used to add stacked windows, entry widgets, checkboxes, radio buttons, 
+                       labels, plain text fields, scrollbars, etc., to text mode user interfaces. Newt is 
+                       based on the S-Lang library. 
+
+Dependencies         : None
+
+Other Info           : The Makefile of the source seems to force compile against tcl 8.4, the SlackBuild attempts
+                       to force it to compile against the currently installed version.
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

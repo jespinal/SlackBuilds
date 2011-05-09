@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+        |-----handy-ruler------------------------------------------------------|
+h323plus: H.323 Plus (OpenH323)
+h323plus: 
+h323plus: H.323 Plus (or, "H323plus") is the home for the open source H.323 
+h323plus: development formerly known as OpenH323. The new name was chosen to 
+h323plus: reflect the fact that the open source H.323 project now contains even
+h323plus: more more functionality than ever before. 
+h323plus:
+h323plus:
+h323plus: More Info: http://www.h323plus.org/
+h323plus: Package: Jose P. Espinal - http://www.eslackware.com
+h323plus:

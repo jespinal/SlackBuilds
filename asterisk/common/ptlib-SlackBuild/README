@@ -1,0 +1,15 @@
+Application Name     : PTLib
+
+Package Description  : PWLib is a moderately large class library that has its genesis many 
+                       years ago as a method to product applications to run on both 
+                       Microsoft Windows and Unix X-Windows systems. It also was to have 
+                       a  well but this never Macintosh port as eventuated. The parts of 
+                       the also been library relating to GUI functions have removed.
+
+Dependencies         : Included, on Slackware 13.X
+
+Other Info           : Other Relevant Information
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

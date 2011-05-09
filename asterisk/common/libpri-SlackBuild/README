@@ -1,0 +1,13 @@
+Application Name     : LibPRI
+
+Package Description  : LibPRI is an open source library that encapsulates the protocols used to communicate over 
+                       ISDN Primary Rate Interfaces (T1, E1, J1). LibPRI is a dependency for Asterisk and DAHDI if PRI signaling
+                       is used. For a more detailed explanation, check out the About LibPRI page.
+
+Dependencies         : None
+
+Other Info           : None
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

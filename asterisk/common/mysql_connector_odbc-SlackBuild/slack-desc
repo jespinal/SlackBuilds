@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+                    |-----handy-ruler------------------------------------------------------|
+mysql-connector-odbc: MySQL Connector/ODBC 
+mysql-connector-odbc:
+mysql-connector-odbc: ODBC (Open Database Connectivity) provides a way for client programs
+mysql-connector-odbc: to access a wide range of databases or data sources. ODBC is a 
+mysql-connector-odbc: standardized API that enables connections to SQL database servers. 
+mysql-connector-odbc:
+mysql-connector-odbc:
+mysql-connector-odbc:
+mysql-connector-odbc: http://dev.mysql.com/doc/refman/5.0/en/connector-odbc-introduction.html
+mysql-connector-odbc: Package: Jose P. Espinal - http://www.eslackware.com
+mysql-connector-odbc:

@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+               |-----handy-ruler------------------------------------------------------|
+asterisk-addons: Asterisk Add-Ons
+asterisk-addons:
+asterisk-addons: Asterisk Add-Ons include a number of additional drivers and utilities
+asterisk-addons: including support for mp3 playback, MySQL real-time and CDR support,
+asterisk-addons: chan_mobile, and an alternative H.323 driver (chan_ooh323).
+asterisk-addons:
+asterisk-addons:
+asterisk-addons:
+asterisk-addons: More info: http://www.asterisk.org/downloads
+asterisk-addons: Package: Jose P. Espinal - http://eslackware.com
+asterisk-addons:

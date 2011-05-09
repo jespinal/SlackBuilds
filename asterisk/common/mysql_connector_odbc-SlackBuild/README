@@ -1,0 +1,13 @@
+Application Name     : MySQL Connector/ODBC 
+
+Package Description  : ODBC (Open Database Connectivity) provides a way for client programs to 
+                       access a wide range of databases or data sources. ODBC is a standardized
+                       API that enables connections to SQL database servers. 
+
+Dependencies         : unixODBC or iODBC 
+
+Other Info           : Compile it with --disable-gui for no problems with Qt dependencies 
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

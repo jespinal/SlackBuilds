@@ -1,0 +1,14 @@
+Application Name     : H.323 Plus
+
+Package Description  : h323plus: H.323 Plus (or, "H323plus") is the home for the open source H.323 
+                       development formerly known as OpenH323. The new name was chosen to 
+                       reflect the fact that the open source H.323 project now contains even
+                       more more functionality than ever before. 
+
+Dependencies         : PTLib
+
+Other Info           : None
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com

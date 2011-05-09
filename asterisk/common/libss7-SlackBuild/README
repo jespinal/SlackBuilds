@@ -1,0 +1,13 @@
+Application Name     : LibSS7
+
+Package Description  : LibSS7 is an open source library that is used for providing SS7 protocol services to applications
+                       - like Asterisk. It has a working MTP2, MTP3 and ISUP for ITU and ANSI-style SS7. LibSS7 is a dependency
+                       for Asterisk and DAHDI if SS7 signaling is used.
+
+Dependencies         : None
+
+Other Info           : None
+
+# http://www.eslackware.com
+# autor: Jose P. Espinal
+# jpe@slackware-es.com
