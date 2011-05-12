@@ -153,6 +153,7 @@ CFLAGS="$SLKCFLAGS" \
 --sysconfdir=/etc --localstatedir=/var \
 --exec-prefix=/usr \
 --mandir=/usr/man \
+# --disable-ansi-bool \
 
 
 ##########################
