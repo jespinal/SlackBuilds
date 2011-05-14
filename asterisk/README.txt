@@ -21,14 +21,17 @@ f. unixODBC-SlackBuild.tar.gz
 g. mysql_connector_odbc-SlackBuild.tar.gz
    Connector/ODBC (standardized database driver)
 
+#  This will no longer be *required* when chan_h323 gets deprecated
 h. ptlib-SlackBuild.tar.gz
    PTLib (used be called PWLib), latest version
 
+#  This will no longer be *required* when chan_h323 gets deprecated
 i. h323plus-SlackBuild.tar.gz
    H323 Plus (formerly known as OpenH323)
 
 j. asterisk-SlackBuild.tar.gz
    Asterisk 1.4.XX
+   Asterisk 1.8.XX
 
 k. asterisk_addons-SlackBuild.tar.gz
    Asterisk Add-Ons

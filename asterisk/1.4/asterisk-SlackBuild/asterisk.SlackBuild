@@ -143,34 +143,6 @@ fi
 
 
 
-# NOTE: Lately, H.323 drivers seems to be producing core dumps when
-#       unloading and loading the module again.
-#
-#       Uncomment the H.323 lines below at your own risk.
-
-###########################
-# Fixing a little issue about an undeclared type (changing "BOOL" for "PBoolean")
-# before issuing make inside h323 directory
-# Update: A patch has been submited for this, in the future this might not be necessary, neither
-#         the step below this one
-###########################
-# sed -i 's|BOOL|PBoolean|g' channels/h323/ast_h323.*
-
-
-###########################
-# Attempting to force the configure script to use our installed
-# version of OpenH323
-###########################
-# OPENH323_VERSION=`grep "OPENH323_VERSION" /usr/include/openh323/openh323buildopts.h | cut -f3 -d ' ' | sed -e 's/"//g'`
-
-# OPENH323_MAJOR_VERSION=`echo ${OPENH323_VERSION} | cut -f1 -d.`
-# OPENH323_MINOR_VERSION=`echo ${OPENH323_VERSION} | cut -f2 -d.`
-# OPENH323_BUILD_NUMBER=`echo ${OPENH323_VERSION} | cut -f3 -d.`
-
-# let OPENH323_VER=${OPENH323_MAJOR_VERSION}*10000+${OPENH323_MINOR_VERSION}*100+${OPENH323_BUILD_NUMBER}
-# sed -i.original 's|let OPENH323_MAX=1.*$|let OPENH323_MAX=\${OPENH323_MAJOR_VERSION}*10000+${OPENH323_MINOR_VERSION}*100+${OPENH323_BUILD_NUMBER}|' configure
-
-
 ###########################
 # Configuration
 # This part needs to be customized for every package
