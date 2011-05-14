@@ -142,9 +142,11 @@ else
 	exit	
 fi
 
-# find . ! -perm 644 -type f -exec chmod 644 {} \;
-# find . ! -perm 755 -type d -exec chmod 755 {} \;
 
+# NOTE: Lately, H.323 drivers seems to be producing core dumps when
+#       unloading and loading the module again.
+#
+#       Uncomment the H.323 lines below at your own risk.
 
 ###########################
 # Fixing a little issue about an undeclared type (changing "BOOL" for "PBoolean")
@@ -152,29 +154,28 @@ fi
 # Update: A patch has been submited for this, in the future this might not be necessary, neither
 #         the step below this one
 ###########################
-sed -i 's|BOOL|PBoolean|g' channels/h323/ast_h323.*
+# sed -i 's|BOOL|PBoolean|g' channels/h323/ast_h323.*
 
 
 ###########################
 # Attempting to force the configure script to use our installed
 # version of OpenH323
 ###########################
-OPENH323_VERSION=`grep "OPENH323_VERSION" /usr/include/openh323/openh323buildopts.h | cut -f3 -d ' ' | sed -e 's/"//g'`
+# OPENH323_VERSION=`grep "OPENH323_VERSION" /usr/include/openh323/openh323buildopts.h | cut -f3 -d ' ' | sed -e 's/"//g'`
 
-OPENH323_MAJOR_VERSION=`echo ${OPENH323_VERSION} | cut -f1 -d.`
-OPENH323_MINOR_VERSION=`echo ${OPENH323_VERSION} | cut -f2 -d.`
-OPENH323_BUILD_NUMBER=`echo ${OPENH323_VERSION} | cut -f3 -d.`
+# OPENH323_MAJOR_VERSION=`echo ${OPENH323_VERSION} | cut -f1 -d.`
+# OPENH323_MINOR_VERSION=`echo ${OPENH323_VERSION} | cut -f2 -d.`
+# OPENH323_BUILD_NUMBER=`echo ${OPENH323_VERSION} | cut -f3 -d.`
 
-let OPENH323_VER=${OPENH323_MAJOR_VERSION}*10000+${OPENH323_MINOR_VERSION}*100+${OPENH323_BUILD_NUMBER}
-
-sed -i.original 's|let OPENH323_MAX=1.*$|let OPENH323_MAX=\${OPENH323_MAJOR_VERSION}*10000+${OPENH323_MINOR_VERSION}*100+${OPENH323_BUILD_NUMBER}|' configure
+# let OPENH323_VER=${OPENH323_MAJOR_VERSION}*10000+${OPENH323_MINOR_VERSION}*100+${OPENH323_BUILD_NUMBER}
+# sed -i.original 's|let OPENH323_MAX=1.*$|let OPENH323_MAX=\${OPENH323_MAJOR_VERSION}*10000+${OPENH323_MINOR_VERSION}*100+${OPENH323_BUILD_NUMBER}|' configure
 
 
 ###########################
 # Configuration
 # This part needs to be customized for every package
 ##########################
-# CFLAGS="$SLKCFLAGS" \
+CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 --sysconfdir=/etc --localstatedir=/var \
 --exec-prefix=/usr \
@@ -186,13 +187,13 @@ sed -i.original 's|let OPENH323_MAX=1.*$|let OPENH323_MAX=\${OPENH323_MAJOR_VERS
 # Building 'menuselect' in order to change
 # options without entering 'menuselect' menu
 #########################
-# make menuselect.makeopts
+make menuselect.makeopts
 
 
 #########################
 # Selecting ODBC_STORAGE for voicemail
 #########################
-# menuselect/menuselect --enable ODBC_STORAGE menuselect.makeopts
+menuselect/menuselect --enable ODBC_STORAGE menuselect.makeopts
 
 
 ##########################
@@ -234,10 +235,10 @@ cat ${CURRENT_DIR}/slack-desc > $PKG/install/slack-desc
 
 
 # Reserving some space with strip
-# ( cd $PKG
-#    find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-#    find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-# )
+( cd $PKG
+   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
 
 
 # Compressing the man pages (if they exist)
