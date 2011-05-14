@@ -52,6 +52,7 @@ PKGDIR=`tar -tf ${FULLPKGNAM} | head -n1`
 CURRENT_DIR=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-${PKGNAM}
+CONFIGSPKG=$TMP/package-${PKGNAM}_configs
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -67,12 +68,19 @@ if [ -d "${PKG}" ]; then
 	rm -rf $PKG
 fi
 
+if [ -d "${CONFIGSPKG}" ]; then
+	rm -rf $CONFIGSPKG
+fi
+
 if [ ! -d "$TMP" ]; then
 	mkdir "$TMP"
 fi
 
 # Creating package directory
 mkdir -p $PKG
+
+# Creating config files directory
+mkdir -p $CONFIGSPKG
 
 # Entering temporal directory
 cd $TMP
@@ -141,6 +149,8 @@ fi
 ###########################
 # Fixing a little issue about an undeclared type (changing "BOOL" for "PBoolean")
 # before issuing make inside h323 directory
+# Update: A patch has been submited for this, in the future this might not be necessary, neither
+#         the step below this one
 ###########################
 sed -i 's|BOOL|PBoolean|g' channels/h323/ast_h323.*
 
@@ -220,7 +230,7 @@ make install DESTDIR=$PKG
 #########################
 # Make Samples 
 #########################
-make samples DESTDIR=$PKG
+make samples DESTDIR=$CONFIGSPKG
 
 
 # Creating documentation
@@ -268,3 +278,7 @@ fi
 # Creating the package
 cd $PKG
 /sbin/makepkg -l y -c n $TMP/${PKGNAM}-${VERSION}-${ARCH}-${BUILD}.txz
+
+# Creating the configs package
+cd $CONFIGSPKG
+/sbin/makepkg -l y -c n $TMP/${PKGNAM}_configs-${VERSION}-${ARCH}-${BUILD}.txz
