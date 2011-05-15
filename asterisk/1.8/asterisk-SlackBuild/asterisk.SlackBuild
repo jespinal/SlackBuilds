@@ -164,9 +164,21 @@ make menuselect.makeopts
 
 
 #########################
-# Selecting ODBC_STORAGE for voicemail
+# Selecting ODBC_STORAGE for voicemail and other options
+#
+# Note: for a full set of options use menuselect/menuselect --list-options
 #########################
 menuselect/menuselect --enable ODBC_STORAGE menuselect.makeopts
+menuselect/menuselect --enable chan_ooh323 menuselect.makeopts
+# menuselect/menuselect --enable app_mysql menuselect.makeopts
+# menuselect/menuselect --enable app_saycountpl menuselect.makeopts
+# menuselect/menuselect --enable cdr_mysql menuselect.makeopts
+menuselect/menuselect --enable chan_mobile  menuselect.makeopts
+menuselect/menuselect --enable chan_ooh323 menuselect.makeopts
+# menuselect/menuselect --enable res_config_mysql menuselect.makeopts
+menuselect/menuselect --enable format_mp3 menuselect.makeopts
+
+contrib/scripts/get_mp3_source.sh # This is mandatory as format_mp3 was selected!
 
 
 ##########################
