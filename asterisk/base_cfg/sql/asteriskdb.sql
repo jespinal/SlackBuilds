@@ -19,7 +19,7 @@
 -- Current Database: `asteriskdb`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `asteriskdb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `asteriskdb` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 
 USE `asteriskdb`;
 
@@ -32,23 +32,23 @@ DROP TABLE IF EXISTS `cdr`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cdr` (
   `calldate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `clid` varchar(80) NOT NULL DEFAULT '',
-  `src` varchar(80) NOT NULL DEFAULT '',
-  `dst` varchar(80) NOT NULL DEFAULT '',
-  `dcontext` varchar(80) NOT NULL DEFAULT '',
-  `channel` varchar(80) NOT NULL DEFAULT '',
-  `dstchannel` varchar(80) NOT NULL DEFAULT '',
-  `lastapp` varchar(80) NOT NULL DEFAULT '',
-  `lastdata` varchar(80) NOT NULL DEFAULT '',
+  `clid` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `src` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `dst` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `dcontext` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `channel` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `dstchannel` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `lastapp` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `lastdata` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `duration` int(11) NOT NULL DEFAULT '0',
   `billsec` int(11) NOT NULL DEFAULT '0',
-  `disposition` varchar(45) NOT NULL DEFAULT '',
+  `disposition` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `amaflags` int(11) NOT NULL DEFAULT '0',
-  `accountcode` varchar(20) NOT NULL DEFAULT '',
-  `uniqueid` varchar(32) NOT NULL DEFAULT '',
-  `userfield` varchar(255) NOT NULL DEFAULT '',
+  `accountcode` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `uniqueid` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `userfield` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   KEY `uniqueid` (`uniqueid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,18 +69,18 @@ DROP TABLE IF EXISTS `voicemessages`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `voicemessages` (
   `msgnum` int(11) unsigned DEFAULT NULL,
-  `dir` varchar(80) DEFAULT NULL,
-  `context` varchar(80) DEFAULT NULL,
-  `macrocontext` varchar(80) DEFAULT NULL,
-  `callerid` varchar(40) DEFAULT NULL,
-  `origtime` varchar(40) DEFAULT NULL,
-  `duration` varchar(20) DEFAULT NULL,
-  `flag` varchar(8) DEFAULT NULL,
-  `mailboxuser` varchar(80) DEFAULT NULL,
-  `mailboxcontext` varchar(80) DEFAULT NULL,
+  `dir` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
+  `context` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
+  `macrocontext` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
+  `callerid` varchar(40) CHARACTER SET utf8 DEFAULT NULL,
+  `origtime` varchar(40) CHARACTER SET utf8 DEFAULT NULL,
+  `duration` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
+  `flag` varchar(8) CHARACTER SET utf8 DEFAULT NULL,
+  `mailboxuser` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
+  `mailboxcontext` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
   `recording` longblob,
   KEY `msgnum` (`msgnum`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Voicemail Messages';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Voicemail Messages';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-15 21:47:27
+-- Dump completed on 2011-05-15 23:34:52
