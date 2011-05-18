@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.1.46, for slackware-linux-gnu (i486)
 --
--- Host: 172.16.181.1    Database: asteriskdb
+-- Host: localhost    Database: asteriskdb
 -- ------------------------------------------------------
 -- Server version	5.1.46-log
 
@@ -69,15 +69,15 @@ DROP TABLE IF EXISTS `voicemessages`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `voicemessages` (
   `msgnum` int(11) unsigned DEFAULT NULL,
-  `dir` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
-  `context` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
-  `macrocontext` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
-  `callerid` varchar(40) CHARACTER SET utf8 DEFAULT NULL,
-  `origtime` varchar(40) CHARACTER SET utf8 DEFAULT NULL,
-  `duration` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
-  `flag` varchar(8) CHARACTER SET utf8 DEFAULT NULL,
-  `mailboxuser` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
-  `mailboxcontext` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
+  `dir` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `context` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `macrocontext` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `callerid` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `origtime` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `duration` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `flag` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mailboxuser` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mailboxcontext` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   `recording` longblob,
   KEY `msgnum` (`msgnum`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Voicemail Messages';
@@ -101,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-15 23:34:52
+-- Dump completed on 2011-05-18 19:44:39
