@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.1.46, for slackware-linux-gnu (i486)
 --
--- Host: localhost    Database: asteriskdb
+-- Host: 172.16.181.1    Database: asteriskdb
 -- ------------------------------------------------------
 -- Server version	5.1.46-log
 
@@ -61,6 +61,48 @@ LOCK TABLES `cdr` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cel`
+--
+
+DROP TABLE IF EXISTS `cel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cel` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `eventtype` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `eventtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `userdeftype` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cid_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `cid_num` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `cid_ani` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `cid_rdnis` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `cid_dnid` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `exten` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `context` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `channame` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `appname` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `appdata` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `amaflags` int(11) NOT NULL,
+  `accountcode` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `peeraccount` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `uniqueid` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `linkedid` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `userfield` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `peer` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cel`
+--
+
+LOCK TABLES `cel` WRITE;
+/*!40000 ALTER TABLE `cel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `voicemessages`
 --
 
@@ -101,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-18 19:50:34
+-- Dump completed on 2011-05-19 21:42:45
