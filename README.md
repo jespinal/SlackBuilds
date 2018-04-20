@@ -1,4 +1,4 @@
-### PROLOGUE (updated: 2018-04-20 00:33)
+### PROLOGUE (updated: 2018-04-20 01:12)
 
 This repository has been created from a private Bitbucket repo that has been unmaintained for a long time now. It's purpose is to have a historical record (and reference) of some job done on SlackBuilds (Slackware Linux packages scripts) used to create Asterisk packages.
 
@@ -94,12 +94,12 @@ h. ptlib-SlackBuild/\
 i. h323plus-SlackBuild/\
    H323 Plus (formerly known as OpenH323)
 
-./1.4/ ./1.8/\
+./1.4/ ./1.8/
 
 j. asterisk-SlackBuild/\
    Asterisk 1.4.XX\
-   Asterisk 1.8.XX\
+   Asterisk 1.8.XX
 
 ./common/\
 k. asterisk_addons-SlackBuild/\
-   Asterisk Add-Ons\
+   Asterisk Add-Ons
