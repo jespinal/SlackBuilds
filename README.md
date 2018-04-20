@@ -68,38 +68,38 @@ I've been informed that h323 (chan_h323) will soon be deprecated in favor of ooh
 a. newt-SlackBuild/\
    NewT Libraries
 
-b. libpri-SlackBuild/\  
+b. libpri-SlackBuild/\
    LibPRI
 
 c. libss7-SlackBuild/\
    LibSS7
 
-d. dahdi_linux-SlackBuild/\ 
+d. dahdi_linux-SlackBuild/\
    DAHDI Linux
 
-e. dahdi_tools-SlackBuild/\ 
+e. dahdi_tools-SlackBuild/\
    DAHDI Tools
 
-f. unixODBC-SlackBuild/\ 
+f. unixODBC-SlackBuild/\
    UnixODBC (entire ODBC API, Drivers, and tools)
 
-g. mysql_connector_odbc-SlackBuild/\ 
+g. mysql_connector_odbc-SlackBuild/\
    Connector/ODBC (standardized database driver)
 
 \#  This will no longer be *required* when chan_h323 gets deprecated\
-h. ptlib-SlackBuild/\ 
+h. ptlib-SlackBuild/\
    PTLib (used be called PWLib), latest version
 
 \#  This will no longer be *required* when chan_h323 gets deprecated\
-i. h323plus-SlackBuild/\ 
+i. h323plus-SlackBuild/\
    H323 Plus (formerly known as OpenH323)
 
-./1.4/ ./1.8/\ 
+./1.4/ ./1.8/\
 
-j. asterisk-SlackBuild/\ 
-   Asterisk 1.4.XX\ 
-   Asterisk 1.8.XX\ 
+j. asterisk-SlackBuild/\
+   Asterisk 1.4.XX\
+   Asterisk 1.8.XX\
 
-./common/\ 
-k. asterisk_addons-SlackBuild/\ 
-   Asterisk Add-Ons\ 
+./common/\
+k. asterisk_addons-SlackBuild/\
+   Asterisk Add-Ons\
