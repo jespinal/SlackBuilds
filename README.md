@@ -1,5 +1,12 @@
-I. Asterisk SlackBuilds
------------------------
+# PROLOGUE (updated: 2018-04-20 00:33)
+
+This repository has been created from a private Bitbucket repo that has been unmaintained for a long time now. It's purpose is to have a historical record (and reference) of some job done on SlackBuilds (Slackware Linux packages scripts) used to create Asterisk packages.
+
+As the syntax for Shellscripts continues to be valid even today, they might serve as reference for someone out there.
+
+The old README file starts here:
+
+### I. Asterisk SlackBuilds
 
 This is a set of scripts for making Slackware Linux binary packages. This will (hopefully) speedup 
 the compilation/installation process and help with setting a testing environment (or production one, if you wish)
@@ -18,17 +25,19 @@ and resources are focused toward this branch.
 You should really take a look at it as it has several new features as well.
 
 
-II. Sample Usage
-----------------
+### II. Sample Usage
+
 One day, you wake up with desires of testing some new functionality of Asterisk that you never tried before,
 you sit in front of your computer, and... you just realize that is not so funny when you have to install *everything* from scratch
 (because you will not -I sincerelly hope so- try things on production servers).
 
 Do the following:
 
+```
 cd /tmp
-hg clone https://bitbucket.org/jespinal/slackbuilds
+git clone https://github.com/jespinal/SlackBuilds.git
 cd /tmp/slackbuilds/asterisk
+```
 
 Here you will see the 'common' directory, where are located the SlackBuilds for software used for 1.4 and 1.8.
 
@@ -46,14 +55,13 @@ Look for base_cfg directory for useful preconfigured samples (like ODBC, Asteris
 
 
 
-III. Updates:
--------------
+### III. Updates:
+
 - May-14-2011:
 I've been informed that h323 (chan_h323) will soon be deprecated in favor of ooh323. A lot of work has been done in ooh323.
 
 
-Recommended Building Order:
----------------------------
+### Recommended Building Order:
 
 ./common/
 
@@ -78,11 +86,11 @@ f. unixODBC-SlackBuild/
 g. mysql_connector_odbc-SlackBuild/
    Connector/ODBC (standardized database driver)
 
-#  This will no longer be *required* when chan_h323 gets deprecated
+\#  This will no longer be *required* when chan_h323 gets deprecated
 h. ptlib-SlackBuild/
    PTLib (used be called PWLib), latest version
 
-#  This will no longer be *required* when chan_h323 gets deprecated
+\#  This will no longer be *required* when chan_h323 gets deprecated
 i. h323plus-SlackBuild/
    H323 Plus (formerly known as OpenH323)
 
